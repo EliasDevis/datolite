@@ -1,13 +1,22 @@
-import { api } from "api";
+import { Api } from "api";
+import { instanceToPlain, plainToInstance } from "class-transformer";
 import { TopazMessage } from "interfaces/TopazMessage";
-import { TopazRegisterPayload, TopazRegisterResponse } from "interfaces/TopazRegister";
+import { TopazRegisterOptions, TopazRegisterPayload, TopazRegisterResponse } from "interfaces/TopazRegister";
 
-export async function registerDevice(payload: TopazRegisterPayload): Promise<void> {
-    const response = await api.post<TopazRegisterResponse>("/device/register", payload)
+export async function registerDevice(payload: TopazRegisterOptions): Promise<void> {
+    const body = plainToInstance(TopazRegisterPayload, payload)
+
+
+    const response = await Api.post(
+        "/device/register", 
+        instanceToPlain(body), 
+        TopazRegisterResponse
+    )
+
 
     if (!response.status) throw new Error("Bad status")
 }
 
 export async function getDeviceMessages(token: string): Promise<TopazMessage[]> {
-    return api.get<TopazMessage[]>("/device/messages/" + token)
+    return Api.get<TopazMessage[]>("/device/messages/" + token, TopazMessage)
 }

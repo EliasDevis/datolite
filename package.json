@@ -3,9 +3,13 @@
   "module": "src/index.ts",
   "type": "module",
   "devDependencies": {
-    "bun-types": "latest"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "class-transformer": "^0.5.1",
+    "bun-types": "latest",
+    "reflect-metadata": "^0.1.13"
   }
 }

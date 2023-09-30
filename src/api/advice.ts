@@ -1,14 +1,14 @@
-import { api } from "api";
-import { TopazAdvice, TopazArticle, TopazBaseAdvice } from "interfaces/enity/TopazAdvice";
+import { Api } from "api";
+import { TopazAdvice } from "interfaces/enity/TopazAdvice";
 
-export async function getAdvice(id: number): Promise<TopazBaseAdvice> {
-    return api.get<TopazBaseAdvice>("/advices/" + id)
+export async function getAdvice(id: number): Promise<TopazAdvice> {
+    return Api.get("/advices/" + id, TopazAdvice)
 }
 
-export async function getArticles(): Promise<TopazArticle[]> {
-    return api.get<TopazArticle[]>("advices/type/article")
+export async function getArticles(): Promise<TopazAdvice[]> {
+    return Api.get<TopazAdvice[]>("/advices/type/article", TopazAdvice)
 }
 
 export async function getAdvices(): Promise<TopazAdvice[]> {
-    return api.get<TopazAdvice[]>("advices/type/advice")
+    return Api.get<TopazAdvice[]>("/advices/type/advice", TopazAdvice)
 }

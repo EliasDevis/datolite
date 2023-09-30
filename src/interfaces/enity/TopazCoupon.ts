@@ -1,25 +1,50 @@
 import { TopazFile } from "interfaces/utils/TopazFile";
 import { TopazEnity } from "./TopazEntity";
+import { Expose, Transform, Type } from "class-transformer";
+import { TopazHtml } from "interfaces/utils/TopazHtml";
 
-export interface TopazCoupon extends TopazEnity {
-    title: string;
-    image: TopazFile;
+export class TopazCoupon extends TopazEnity {
+    @Expose()
+    title!: string;
+
+    @Expose()
+    @Type(() => TopazFile)
+    @Transform(({ value }) => new TopazFile(value))
+    image?: TopazFile;
+
+    @Expose()
     producerLogo?: unknown;
-    details: string;
-    promoTitle: number // html-string
-    onlyForRegisteredUser: boolean;
-    forCardholdersOnly: false;
-    eanCode: string // 
 
-    promoSubtitle: string;
-    info: string // html-like
-    note: string // html-like
-    extra: boolean;
+    @Expose()
+    details!: string;
 
+    @Expose()
+    promoTitle!: TopazHtml 
+
+    @Expose()
+    onlyForRegisteredUser!: boolean;
+
+    @Expose()
+    forCardholdersOnly!: false;
+
+    @Expose()
+    eanCode!: string 
+
+    @Expose()
+    promoSubtitle!: string;
+
+    @Expose()
+    info!: TopazHtml
+
+    @Expose()
+    note!: TopazHtml
+
+    @Expose()
+    extra!: boolean;
+
+    @Expose()
     used?: unknown;
-    expired?: unknown;
-}
 
-export interface TopazExtraCoupon extends TopazCoupon {
-    extra: true;
+    @Expose()
+    expire?: unknown;
 }

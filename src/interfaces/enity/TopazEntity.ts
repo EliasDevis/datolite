@@ -1,11 +1,25 @@
-import { TopazDate } from "interfaces/utils/TopazDate";
+import { Expose, Type } from "class-transformer";
 import { TopazFile } from "interfaces/utils/TopazFile";
 
-export interface TopazEnity {
-    startDate: TopazDate;
-    endDate: TopazDate;
+export class TopazEnity {
+    @Expose()
+    id!: number;
+
+    @Expose()
+    @Type(() => Date)
+    startDate!: Date;
+
+    @Expose()
+    @Type(() => Date)
+    endDate!: Date;
+
+    @Expose()
+    @Type(() => TopazFile)
     carouselImage?: TopazFile;
-    stickOnCarousel: boolean;
+
+    @Expose()
+    stickOnCarousel!: boolean;
+
+    @Expose()
     orderInCarousel?: number;
-    id: number;
 }

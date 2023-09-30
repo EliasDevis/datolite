@@ -1,49 +1,78 @@
-import { TopazDate } from "interfaces/utils/TopazDate";
+import { Expose, Transform, Type } from "class-transformer";
 import { TopazFile } from "interfaces/utils/TopazFile";
+import { TopazAdviceType as TopazAdviceType } from "./TopazAdviceType";
+import { TopazHtml } from "interfaces/utils/TopazHtml";
 
-export interface TopazBaseAdvice {
-    id: number;
-    title: string;
-    teaser: string; // html
-    image: TopazFile;
-    stickOnCarousel: boolean;
-    showOnlyInCarousel: boolean;
-    adviceType: TopazAdviceType;
-    content: string;
-    orderInCarousel: number;
-    carouselImage: TopazFile;
-    ingredients: TopazIngredient[];
-    createDate: TopazDate;
+
+export class TopazAdvice {
+    @Expose()
+    id!: number;
+
+    @Expose()
+    title!: string;
+
+    @Expose()
+    teaser!: TopazHtml;
+
+    @Expose()
+    @Type(() => TopazFile)
+    @Transform(({ value }) => new TopazFile(value))
+    image!: TopazFile;
+
+    @Expose()
+    stickOnCarousel!: boolean;
+
+    @Expose()
+    showOnlyInCarousel!: boolean;
+
+    @Expose()
+    @Type(() => TopazAdviceType)
+    adviceType!: TopazAdviceType;
+
+    @Expose()
+    content!: string;
+
+    @Expose()
+    orderInCarousel!: number;
+
+    @Expose()
+    @Type(() => TopazFile)
+    @Transform(({ value }) => value ? new TopazFile(value) : null)
+    carouselImage?: TopazFile;
+
+    @Expose()
+    @Type(() => TopazIngredient)
+    ingredients!: TopazIngredient[];
+
+    @Expose()
+    @Type(() => Date)
+    createDate!: Date;
 }
 
-export interface TopazAdviceType {
-    id: number;
-    name: string;
+export class TopazIngredient {
+    @Expose()
+    id!: number;
+
+    @Expose()
+    name!: string;
+
+    @Expose()
+    @Transform(({ obj }) => ({ 
+        name: obj.productName, 
+        amount: parseInt(obj.productAmount), 
+        unit: obj.productUnit 
+    }))
+    @Type(() => TopazProduct)
+    product!: TopazProduct;
 }
 
-export type TopazArticle = TopazBaseAdvice & {
-    adviceType: {
-        id: 2,
-        name: "Artykuł"
-    }
-}
+export class TopazProduct {
+    @Expose()
+    name!: string;
 
-export type TopazAdvice = TopazBaseAdvice & {
-    adviceType: {
-        id: 1,
-        name: "Przepis"
-    }
-}
+    @Expose()
+    amount!: number;
 
-export interface TopazIngredient {
-    id: number;
-    name: string;
-    // product: {
-    //     name: string;
-    //     amount: number;
-    //     unit: string;
-    // }
-    productName: string;
-    productAmount: number;
-    productUnit: string;
+    @Expose()
+    unit!: string;
 }

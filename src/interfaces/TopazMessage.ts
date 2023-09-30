@@ -1,12 +1,19 @@
-import { TopazDate } from "./utils/TopazDate";
+import { Type } from "class-transformer";
 import { TopazFile } from "./utils/TopazFile";
 
-export interface TopazMessage {
-    id: number;
-    title: string;
-    body: string;
-    image: TopazFile;
+export class TopazMessage {
+    id!: number;
 
-    createDate: TopazDate; // Date
-    sendDate: TopazDate; // Date
+    title!: string;
+
+    body!: string;
+
+    @Type(() => TopazFile)
+    image!: TopazFile;
+
+    @Type(() => Date)
+    createDate!: Date; // Date
+
+    @Type(() => Date)
+    sendDate!: Date; // Date
 }

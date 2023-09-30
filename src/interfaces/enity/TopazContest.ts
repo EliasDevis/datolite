@@ -1,10 +1,20 @@
 import { TopazFile } from "interfaces/utils/TopazFile";
 import { TopazEnity } from "./TopazEntity";
+import { Expose, Transform, Type } from "class-transformer";
+import { TopazHtml } from "interfaces/utils/TopazHtml";
 
-export interface TopazContest extends TopazEnity {
-    id: number;
-    title: string;
-    image: TopazFile;
-    website: string; // url
-    details: string; // html
+export class TopazContest extends TopazEnity {
+    @Expose()
+    title!: string;
+
+    @Expose()
+    @Type(() => TopazFile)
+    @Transform(({ value }) => new TopazFile(value))
+    image!: TopazFile;
+
+    @Expose()
+    website!: string;
+
+    @Expose()
+    details!: TopazHtml; 
 }

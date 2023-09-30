@@ -1,10 +1,21 @@
 import { describe, expect, test } from "bun:test";
-import { randomBytes } from "crypto";
+import { randomBytes, randomInt } from "crypto";
 import { getDeviceMessages, registerDevice } from "index";
+import { delay } from "./utils/delay";
+import { generateRandomString } from "./utils/randomString";
 
-describe("Device", () => {
-    const token = randomBytes(64).toString("hex")
-    const shopId = 15
+
+
+function generateToken() {
+    return generateRandomString(21)
+        + ":"
+        + generateRandomString(140)
+}
+
+
+describe("Device", async () => {
+    const token = generateToken()
+    const shopId = randomInt(24)
 
     test("Register device", async () => {
         const promise = registerDevice({
@@ -17,6 +28,8 @@ describe("Device", () => {
 
         expect(promise).resolves.toBeEmpty()
     })
+
+    await delay(1000) // Fails without waiting
 
     test("Get device messages", async () => {
         const messages = await getDeviceMessages(token);

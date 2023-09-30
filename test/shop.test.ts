@@ -1,13 +1,13 @@
 
 
 import { expect, test, describe } from "bun:test";
+import { randomInt } from "crypto";
 import { getShops, getShop, getShopCoupons, getShopLeaflets, getShopPromos } from "index";
-import { TopazMapShop } from "interfaces/enity/TopazMapShop";
 import { TopazFullShop } from "interfaces/enity/TopazFullShop";
 
 
 describe("Shop", () => {
-    const testShopId = 23
+    const testShopId = randomInt(100)
 
     test("Get shop", async () => {
         const res = await getShop(testShopId)

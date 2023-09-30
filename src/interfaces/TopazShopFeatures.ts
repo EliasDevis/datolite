@@ -36,5 +36,4 @@ export class TopazShopFeatures {
     pharmacy!: boolean;
 
     coupons!: boolean;
-    
 }

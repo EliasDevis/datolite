@@ -1,4 +1,4 @@
-import { Expose, Type } from "class-transformer";
+import { Expose, Transform, Type } from "class-transformer";
 import { TopazFile } from "interfaces/utils/TopazFile";
 
 export class TopazEnity {
@@ -15,6 +15,7 @@ export class TopazEnity {
 
     @Expose()
     @Type(() => TopazFile)
+    @Transform(({ value }) => new TopazFile(value))
     carouselImage?: TopazFile;
 
     @Expose()

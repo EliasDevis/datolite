@@ -13,11 +13,11 @@ export class TopazPromo extends TopazEnity {
 
     @Expose()
     @Type(() => Number)
-    grossPrice!: number; // number
+    grossPrice!: number; 
 
     @Expose()
     @Type(() => Number)
-    grossDiscountPrice!: number; // number
+    grossDiscountPrice!: number; 
 
     @Expose()
     forCardholdersOnly!: boolean;

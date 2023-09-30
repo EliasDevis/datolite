@@ -7,7 +7,7 @@ export class TopazLeaflet extends TopazEnity {
     name!: string;
 
     @Expose()
-    type!: "THEMATIC";
+    type!: "THEMATIC" | "GENERAL" | "ALCOHOL";
     
     @Expose()
     @Type(() => TopazFile)

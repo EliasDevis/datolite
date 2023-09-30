@@ -4,11 +4,15 @@ import { toOpenTime } from "transformers/toTime";
 export class TopazTime {
     @Expose()
     @Type(() => Number)
-    hours!: number; // 0-23
+    hours!: number;
 
     @Expose()
     @Type(() => Number)
-    minutes!: number; // 0-59
+    minutes!: number; 
+
+    toString() {
+        return `${this.hours}:${this.minutes}`
+    }
 }
 
 export class TopazOpenTime {
@@ -19,6 +23,10 @@ export class TopazOpenTime {
     @Expose()
     @Type(() => TopazTime)
     to!: TopazTime;
+
+    toString() {
+        return this.from.toString() + "-" + this.to.toString()
+    }
 }
 
 

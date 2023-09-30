@@ -1,11 +1,12 @@
 import { expect, test, describe } from "bun:test";
+import { randomInt } from "crypto";
 import { getAdvice, getAdvices, getArticles } from "index";
 import { TopazAdvice } from "interfaces/enity/TopazAdvice";
 
 describe("Advice", () => {
     test("Get Advice", async () => {
-        const testAdviceId = 345
-        const res = await getAdvice(testAdviceId)
+        const adviceId = randomInt(1000)
+        const res = await getAdvice(adviceId)
 
         expect(res).toBeInstanceOf(TopazAdvice);
     });

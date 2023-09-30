@@ -3,13 +3,13 @@ import { Expose } from "class-transformer";
 
 export interface TopazRegisterOptions {
     token: string
-    shopId: number // shop_id
-    ofLegalAge: boolean // of_legal_age
+    shopId: number
+    ofLegalAge: boolean 
     cardholder: boolean
     type: 1 | 0;
 }
 
-export class TopazRegisterPayload implements TopazRegisterOptions{
+export class TopazRegisterPayload implements TopazRegisterOptions {
     @Expose()
     token!: string;
 
@@ -24,7 +24,7 @@ export class TopazRegisterPayload implements TopazRegisterOptions{
 
     @Expose()
     type!: 1 | 0;
-    
+
 }
 
 export class TopazRegisterResponse {

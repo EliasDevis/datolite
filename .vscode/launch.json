@@ -7,7 +7,7 @@
         "name": "Debug Bun",
   
         // The path to a JavaScript or TypeScript file to run.
-        "program": "test/shop.test.ts",
+        "program": "${file}",
   
         // // The arguments to pass to the program, if any.
         // "args": [],

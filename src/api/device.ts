@@ -6,15 +6,11 @@ import { TopazRegisterOptions, TopazRegisterPayload, TopazRegisterResponse } fro
 export async function registerDevice(payload: TopazRegisterOptions): Promise<void> {
     const body = plainToInstance(TopazRegisterPayload, payload)
 
-
-    const response = await Api.post(
+    await Api.post(
         "/device/register", 
         instanceToPlain(body), 
         TopazRegisterResponse
     )
-
-
-    if (!response.status) throw new Error("Bad status")
 }
 
 export async function getDeviceMessages(token: string): Promise<TopazMessage[]> {

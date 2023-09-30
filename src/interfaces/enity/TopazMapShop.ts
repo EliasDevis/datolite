@@ -10,13 +10,13 @@ export class TopazMapShop {
     id!: number;
 
     @Expose()
-    lat!: number // float
+    lat!: number 
 
     @Expose()
-    lng!: number // float
+    lng!: number 
 
     @Expose()
-    city!: string // "Warszawa"
+    city!: string
 
     @Expose()
     address!: string
@@ -34,7 +34,7 @@ export class TopazMapShop {
     openingHours!: TopazOpenHours
 
     @Expose()
-    mobile!: TopazPhoneNumber // "+48500219159"
+    mobile!: TopazPhoneNumber 
 
     @Expose()
     openNonTradingSunday!: boolean

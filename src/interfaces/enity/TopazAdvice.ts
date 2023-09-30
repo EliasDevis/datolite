@@ -30,7 +30,7 @@ export class TopazAdvice {
     adviceType!: TopazAdviceType;
 
     @Expose()
-    content!: string;
+    content!: TopazHtml;
 
     @Expose()
     orderInCarousel!: number;

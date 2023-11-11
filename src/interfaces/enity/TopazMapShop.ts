@@ -1,5 +1,5 @@
 import { Expose, Transform, Type } from "class-transformer";
-import { TopazShopFeatures } from "interfaces/TopazShopFeatures"
+import { TopazShopFeatures } from "interfaces/models/TopazShopFeatures"
 import { TopazPhoneNumber } from "interfaces/utils/TopazPhoneNumber"
 import { TopazOpenHours } from "interfaces/utils/TopazTime"
 import { toFeatures } from "transformers/toFeatures";

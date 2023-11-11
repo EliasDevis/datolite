@@ -1,8 +1,8 @@
 import { Expose, Type } from "class-transformer";
-import { TopazMix } from "interfaces/TopazMix";
+import { TopazMix } from "interfaces/abstracts/TopazMix";
 import { TopazCoupon } from "./TopazCoupon";
-import { TopazBanner } from "./TopazBanner";
-import { TopazScratch } from "./TopazScratch";
+import { TopazBanner } from "../models/TopazBanner";
+import { TopazScratch } from "../models/TopazScratch";
 
 
 

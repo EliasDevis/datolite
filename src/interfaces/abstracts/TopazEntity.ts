@@ -1,7 +1,7 @@
 import { Expose, Transform, Type } from "class-transformer";
 import { TopazFile } from "interfaces/utils/TopazFile";
 
-export class TopazEnity {
+export abstract class TopazEnity {
     @Expose()
     id!: number;
 

@@ -1,7 +1,8 @@
 import { Expose, Transform, Type } from "class-transformer";
 import { TopazFile } from "interfaces/utils/TopazFile";
-import { TopazAdviceType as TopazAdviceType } from "./TopazAdviceType";
+import { TopazAdviceType } from "interfaces/models/TopazAdviceType";
 import { TopazHtml } from "interfaces/utils/TopazHtml";
+import { TopazIngredient } from "../models/TopazIngredient";
 
 
 export class TopazAdvice {
@@ -37,7 +38,7 @@ export class TopazAdvice {
 
     @Expose()
     @Type(() => TopazFile)
-    @Transform(({ value }) => value ? new TopazFile(value) : null)
+    @Transform(({ value }) => new TopazFile(value))
     carouselImage?: TopazFile;
 
     @Expose()
@@ -47,32 +48,4 @@ export class TopazAdvice {
     @Expose()
     @Type(() => Date)
     createDate!: Date;
-}
-
-export class TopazIngredient {
-    @Expose()
-    id!: number;
-
-    @Expose()
-    name!: string;
-
-    @Expose()
-    @Transform(({ obj }) => ({ 
-        name: obj.productName, 
-        amount: parseInt(obj.productAmount), 
-        unit: obj.productUnit 
-    }))
-    @Type(() => TopazProduct)
-    product!: TopazProduct;
-}
-
-export class TopazProduct {
-    @Expose()
-    name!: string;
-
-    @Expose()
-    amount!: number;
-
-    @Expose()
-    unit!: string;
 }

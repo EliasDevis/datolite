@@ -1,5 +1,5 @@
 import { Expose, Transform, Type } from "class-transformer";
-import { TopazFile } from "./utils/TopazFile";
+import { TopazFile } from "../utils/TopazFile";
 
 export class TopazMessage {
     @Expose()

@@ -5,6 +5,7 @@ import { TopazPromo } from "interfaces/enity/TopazPromo"
 import { TopazFullShop } from "interfaces/enity/TopazFullShop"
 import { Api } from "api"
 
+
 export async function getShops(): Promise<TopazMapShop[]> {
     return Api.get<TopazMapShop[], { shops: TopazMapShop[] }>(
         "/shop", 

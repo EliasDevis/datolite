@@ -24,7 +24,6 @@ export class TopazRegisterPayload implements TopazRegisterOptions {
 
     @Expose()
     type!: 1 | 0;
-
 }
 
 export class TopazRegisterResponse {

@@ -1,7 +1,7 @@
 import { Api } from "api";
 import { instanceToPlain, plainToInstance } from "class-transformer";
-import { TopazMessage } from "interfaces/TopazMessage";
-import { TopazRegisterOptions, TopazRegisterPayload, TopazRegisterResponse } from "interfaces/TopazRegister";
+import { TopazMessage } from "interfaces/models/TopazMessage";
+import { TopazRegisterOptions, TopazRegisterPayload, TopazRegisterResponse } from "interfaces/payloads/TopazRegister";
 
 export async function registerDevice(payload: TopazRegisterOptions): Promise<void> {
     const body = plainToInstance(TopazRegisterPayload, payload)

@@ -1,5 +1,5 @@
 import { TopazFile } from "interfaces/utils/TopazFile";
-import { TopazEnity } from "./TopazEntity";
+import { TopazEnity } from "../abstracts/TopazEntity";
 import { Expose, Transform, Type } from "class-transformer";
 
 export class TopazLeaflet extends TopazEnity {

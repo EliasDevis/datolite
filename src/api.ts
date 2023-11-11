@@ -17,8 +17,8 @@ export class Api {
         change?: (serverData: S) => T): Promise<T> {
 
         const response = await fetch(`${Api.url}${url}`)
+            .then(r => r.status !== 200 ? (() => { throw new UnknownError() })() : r)
             .then(r => r.json() as S)
-            .then(r => r === null ? (() => { throw new UnknownError() })() : r)
             .then(r => change ? change(r) : r)
 
 
@@ -42,8 +42,9 @@ export class Api {
         }
 
         const response = await fetch(`${Api.url}${url}`, params)
+            .then(r => r.status !== 200 ? (() => { throw new UnknownError() })() : r)
             .then(r => r.json())
-            .then(r => r === null ? (() => { throw new UnknownError() })() : r)
+            // .then(r => r === null ? (() => { throw new UnknownError() })() : r)
 
         const instance = plainToInstance(type, response, { excludeExtraneousValues: true })
 

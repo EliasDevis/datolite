@@ -1,9 +1,9 @@
 import { Expose, Type } from "class-transformer";
-import { TopazAdvice } from "./enity/TopazAdvice";
-import { TopazContest } from "./enity/TopazContest";
-import { TopazCoupon } from "./enity/TopazCoupon";
-import { TopazLeaflet } from "./enity/TopazLeaflet";
-import { TopazPromo } from "./enity/TopazPromo";
+import { TopazAdvice } from "../enity/TopazAdvice";
+import { TopazContest } from "../enity/TopazContest";
+import { TopazCoupon } from "../enity/TopazCoupon";
+import { TopazLeaflet } from "../enity/TopazLeaflet";
+import { TopazPromo } from "../enity/TopazPromo";
 
 export abstract class TopazMix {
     @Expose()

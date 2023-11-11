@@ -1,20 +1,41 @@
 {
-  "name": "topaz-api",
+  "name": "topaz-apk-api",
   "version": "1.0.0",
-  "module": "src/index.ts",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "bun run build.mjs",
+    "prepublishOnly": "bun run build"
+  },
+  "types": "dist/index.d.ts",
   "type": "module",
-  "description": "Unofficial topaz api",
+  "description": "Unofficial topaz apk api",
   "author": {
     "name": "Elias"
   },
+  "files": [
+    "dist"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "topaz",
+    "topaz24.pl",
+    "topaz api"
+  ],
+  "homepage": "https://github.com/EliasDevis/topaz-apk-api#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EliasDevis/topaz-apk-api.git"
+  },
+  "bugs": "https://github.com/EliasDevis/topaz-apk-api/issues",
   "devDependencies": {
+    "bun-plugin-dts": "^0.2.1",
+    "bun-types": "^1.0.7",
+    "typescript": "^5.2.2",
+    "reflect-metadata": "^0.1.13"
   },
   "peerDependencies": {
-    "typescript": "^5.0.0"
   },
   "dependencies": {
-    "class-transformer": "^0.5.1",
-    "bun-types": "latest",
-    "reflect-metadata": "^0.1.13"
+    "class-transformer": "^0.5.1"
   }
 }

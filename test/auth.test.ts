@@ -12,9 +12,13 @@ describe("Auth", () => {
 
     test("Login By Card", () => {
         const res = loginByCard(credentials)
+
+        console.log(res)
     })
 
     test("Sent Reset Password Email", () => {
         const res = sendEmail(email)
+
+        console.log(res)
     })
 })

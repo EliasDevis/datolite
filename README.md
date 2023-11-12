@@ -1,6 +1,6 @@
 
 <div align="center" >
-<h1>Topaz APK API</h1>
+<h1>Datolite</h1>
 Unofficial client to <a href="https://topaz24.pl">Topaz24</a> mobile API.
 
 </div>
@@ -11,7 +11,7 @@ It uses [apk.topaz24.pl/api](https://apk.topaz24.pl/api) to get the data.
 
 ## Installation
 ```bash
-npm install topaz-apk-api
+npm install datolite
 ```
 
 ## Example 
